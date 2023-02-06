@@ -27,8 +27,14 @@ message GetPetRequest {
   string pet_id = 1;
 }
 
+message GetAllPetRequest {}
+
 message GetPetResponse {
   Pet pet = 1;
+}
+
+message GetAllPetResponse {
+  repeated Pet pet = 1;
 }
 
 message CreatePetRequest {
@@ -48,6 +54,7 @@ message DeletePetResponse {}
 
 service PetStore {
   rpc GetPet(GetPetRequest) returns (GetPetResponse) {}
+  rpc GetAllPet(GetAllPetRequest) returns (GetAllPetResponse) {}
   rpc CreatePet(CreatePetRequest) returns (CreatePetResponse) {}
   rpc DeletePet(DeletePetRequest) returns (DeletePetResponse) {}
 }
