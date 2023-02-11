@@ -4,7 +4,7 @@ package pet.v1;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/hungtg7/api-app/proto_file/pet;petv1";
+option go_package = "github.com/hungtg7/backend-app/proto_file/pet;petv1";
 
 // PetType represents the different types of pets in the pet store.
 enum PetType {
@@ -52,7 +52,14 @@ message DeletePetRequest {
 
 message DeletePetResponse {}
 
+
 service PetStore {
+   rpc GetPets(GetAllPetRequest) returns (GetAllPetResponse) {
+    option (google.api.http) = {
+      get: "/pet/v1/"
+    }
+  }
+
   rpc GetPet(GetPetRequest) returns (GetPetResponse) {}
   rpc GetAllPet(GetAllPetRequest) returns (GetAllPetResponse) {}
   rpc CreatePet(CreatePetRequest) returns (CreatePetResponse) {}
