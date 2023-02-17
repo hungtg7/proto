@@ -60,7 +60,7 @@ message DeletePetResponse {}
 service PetStore {
     rpc GetPets(GetAllPetRequest) returns (GetAllPetResponse) {
         option (google.api.http) = {
-          get: "/pet/v1"
+          get: "/pet/v1/getall/{limit}/{offset}"
         };
     }
 
