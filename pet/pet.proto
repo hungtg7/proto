@@ -38,7 +38,8 @@ message GetPetResponse {
 }
 
 message GetAllPetResponse {
-    repeated Pet pet = 1;
+    int64 total = 1
+    repeated Pet pet = 2;
 }
 
 message CreatePetRequest {
