@@ -38,7 +38,7 @@ message GetPetResponse {
 }
 
 message GetAllPetResponse {
-    int64 total = 1
+    int64 total = 1;
     repeated Pet pet = 2;
 }
 
@@ -59,7 +59,7 @@ message DeletePetResponse {}
 
 
 service PetStore {
-    rpc GetPets(GetAllPetRequest) returns (GetAllPetResponse) {
+    rpc GetAllPet(GetAllPetRequest) returns (GetAllPetResponse) {
         option (google.api.http) = {
           get: "/pet/v1/getall/{limit}/{offset}"
         };
